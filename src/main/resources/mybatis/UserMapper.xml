@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="User">
+
+ 	<select id="selectUser" resultType="Map" parameterType="UserVO">
+ 	 /* User.selectUserSttus */
+	SELECT *
+	FROM (
+		SELECT '4' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr} AND pswd = #{pswd} AND pswd_init_yn='Y'
+		UNION 
+		SELECT '3' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr} AND pswd = #{pswd}
+		UNION 
+		SELECT '2' rtnCode, '비밀번호가 일치하지 않습니다' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr}
+		UNION 
+		SELECT '1' rtnCode, '존재하지 않는 아이디 입니다' rtnMsg, 1
+	) a
+	where cnt > 0
+	order by rtnCode desc
+	limit 1
+	</select>
+	
+	<update id="updateUserSalt" parameterType="UserVO">
+ 	 /* User.updateUserSalt */
+ 	UPDATE TB_MBR_INFO_M
+	SET salt_vl = #{salt_vl}
+	WHERE mbr_sn = #{mbr_sn}
+	</update>
+
+
+	<insert id="insertUserInfo" parameterType="UserVO">
+ 	 /* User.insertUserInfo */
+ 	INSERT INTO TB_MBR_INFO_M (mbr_name, eml_addr, pswd, mbr_tel, prvc_trms_agre_dt, srvc_trms_agre_dt, mbr_id)
+	VALUES (
+		#{mbr_name},
+		#{eml_addr},
+		#{pswd},
+		#{mbr_tel},
+		now(),
+		now(),
+		#{mbr_id}
+	)
+	</insert>
+
+	
+ 	<select id="selectDupMail" resultType="Map" parameterType="String">
+ 	 /* User.selectMail */
+	SELECT rtnCode
+	FROM (
+		SELECT 'Y' rtnCode, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr}
+		UNION 
+		SELECT 'N' rtnCode, 1
+	) a
+	where cnt > 0
+	order by rtnCode desc
+	limit 1
+	</select>
+	
+	
+ 	<select id="selectUserId" resultType="Map" parameterType="String">
+ 	 /* User.selectUserId */
+	SELECT rtnCode, rtnMsg
+	FROM (
+		SELECT '1' rtnCode, COUNT(*) cnt, eml_addr rtnMsg FROM TB_MBR_INFO_M WHERE mbr_tel = #{mbr_tel}
+		UNION 
+		SELECT '0' rtnCode, 1, '해당 번호와 일치하는 아이디가 존재하지 않습니다' rtnMsg
+	) a
+	where cnt > 0
+	order by rtnCode desc
+	limit 1
+	</select>
+
+	
+	<update id="updateUserTempPswd" parameterType="UserVO">
+ 	 /* User.updateUserTempPswd */
+	UPDATE TB_MBR_INFO_M
+	SET pswd = #{pswd}
+	, pswd_init_yn = 'Y'
+	WHERE eml_addr = #{eml_addr}
+	</update>
+	
+	
+ 	<select id="selectUsedPswd" resultType="String" parameterType="UserVO">
+ 	 /* User.selectUsedPswd */
+	SELECT rtnCode
+	FROM (
+		SELECT 'Y' rtnCode, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE pswd = #{temp_pswd} AND eml_addr = #{eml_addr}
+		UNION 
+		SELECT 'N' rtnCode, 1
+	) a
+	where cnt > 0
+	order by rtnCode desc
+	limit 1
+	</select>
+	
+	
+	<update id="updateUserPswd" parameterType="UserVO">
+ 	 /* User.updateUserPswd */
+	UPDATE TB_MBR_INFO_M
+	SET pswd = #{pswd}
+	, pswd_init_yn = 'N'
+	WHERE pswd = #{temp_pswd}
+	AND eml_addr = #{eml_addr}
+	</update>
+	
+	
+	<update id="updateUserResign" parameterType="UserVO">
+ 	 /* User.updateUserResign */
+	UPDATE TB_MBR_INFO_M
+	SET eml_addr = CONCAT(#{eml_addr},'_')
+	, resign_yn = 'Y'
+	WHERE eml_addr = #{eml_addr}
+	AND salt_vl = #{salt_vl}
+	</update>
+
+
+ 	<select id="selectUserInfo" resultType="UserVO" parameterType="String">
+ 	 /* User.selectUserInfo */
+ 	SELECT * 
+ 	FROM TB_MBR_INFO_M
+ 	WHERE mbr_sn = #{mbr_sn}
+	</select>
+	
+	
+	<update id="updateUserDetail" parameterType="UserVO">
+ 	 /* User.updateUserDetail */
+ 	UPDATE TB_MBR_INFO_M
+	<set>
+		<if test='mbr_name != null and !mbr_name.equals("")'>
+	 	mbr_name = #{mbr_name},
+ 		</if>
+		<if test='mbr_type != null and !mbr_type.equals("")'>
+		mbr_type = #{mbr_type},
+ 		</if>
+		<if test='pswd != null and !pswd.equals("")'>
+		pswd = #{pswd},
+ 		</if>  
+	</set>
+ 	WHERE mbr_sn= #{mbr_sn}
+	</update>
+
+
+	<select id="selectUserList" resultType="UserVO" parameterType="UserVO">
+ 	 /* User.selectUserList */
+ 	 SELECT *
+	 	 , (
+ 	 		SELECT COUNT(*) 
+		 	FROM TB_MBR_INFO_M
+		 	<where>
+			 	<if test='mbr_sn != null and !mbr_sn.equals("")'>
+				 	AND mbr_sn = #{mbr_sn}
+			 	</if>
+			 	<if test='mbr_id != null and !mbr_id.equals("")'>
+				 	AND mbr_id = #{mbr_id}
+			 	</if>
+			 	<if test='mbr_name != null and !mbr_name.equals("")'>
+				 	AND mbr_name = #{mbr_name}
+			 	</if>
+			 	<if test='eml_addr != null and !eml_addr.equals("")'>
+				 	AND eml_addr = #{eml_addr}
+			 	</if>
+			 	<if test='mbr_tel != null and !mbr_tel.equals("")'>
+				 	AND mbr_tel = #{mbr_tel}
+			 	</if>
+			 	<if test='searchText != null and !searchText.equals("")'>
+				 	AND (
+				 	eml_addr LIKE '%${searchText}%'
+				 	OR mbr_name LIKE '%${searchText}%'
+				 	OR eml_addr LIKE '%${searchText}%'
+				 	)
+			 	</if>
+		 	</where>
+ 		 ) TOTAL
+ 	 FROM (
+	 	SELECT @ROWNUM:=@ROWNUM+1 AS ROWNUM, m.* 
+	 	FROM TB_MBR_INFO_M m, (SELECT @ROWNUM:=0) r 
+	 	<where>
+		 	<if test='mbr_sn != null and !mbr_sn.equals("")'>
+			 	AND mbr_sn = #{mbr_sn}
+		 	</if>
+		 	<if test='mbr_id != null and !mbr_id.equals("")'>
+			 	AND mbr_id = #{mbr_id}
+		 	</if>
+		 	<if test='mbr_name != null and !mbr_name.equals("")'>
+			 	AND mbr_name = #{mbr_name}
+		 	</if>
+		 	<if test='eml_addr != null and !eml_addr.equals("")'>
+			 	AND eml_addr = #{eml_addr}
+		 	</if>
+		 	<if test='mbr_tel != null and !mbr_tel.equals("")'>
+			 	AND mbr_tel = #{mbr_tel}
+		 	</if>
+		 	<if test='searchText != null and !searchText.equals("")'>
+			 	AND (
+			 	eml_addr LIKE '%${searchText}%'
+			 	OR mbr_name LIKE '%${searchText}%'
+			 	OR eml_addr LIKE '%${searchText}%'
+			 	)
+		 	</if>
+	 	</where>
+		order by m.mbr_sn desc
+ 	 ) P
+	  <if test="PAGE_NUMBER != null and PAGE_NUMBER != ''">
+		LIMIT #{PAGE_SIZE}
+	  </if>
+	  <if test="CURRENT_START != null and CURRENT_START != ''">
+		OFFSET #{CURRENT_START}
+	  </if>
+  	</select>
+  	
+</mapper>
+
+

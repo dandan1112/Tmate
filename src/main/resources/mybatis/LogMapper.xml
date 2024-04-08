@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Log">
+
+	<insert id="insertUserLog" parameterType="logVO">
+ 	 /* Log.insertUserLog */
+ 	INSERT INTO TB_LOG
+	VALUES (
+		#{log_cat},
+		now(),
+		#{mbr_sn},
+		#{eqpmnt_info_sn},
+		#{log_content}
+	)
+	</insert>
+	
+	<select id="selectLogList" resultType="LogVO" parameterType="LogVO">
+ 	 /* Log.selectLogList */
+	SELECT *
+	 	 , (
+ 	 		SELECT COUNT(*) 
+		 	FROM (
+					SELECT l.log_tm,
+						m.eml_addr, 
+						l.eqpmnt_info_sn, 
+						l.log_content 
+					FROM TB_LOG l LEFT OUTER JOIN TB_MBR_INFO_M m
+					ON l.mbr_sn = m.mbr_sn
+					<where>
+						log_cat = #{log_cat}
+					 	<if test='eqpmnt_info_sn != null and !eqpmnt_info_sn.equals("")'>
+						 	AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+					 	</if>
+						<if test='searchText != null and !searchText.equals("")'>
+						 	AND (
+						 	l.log_content LIKE '%${searchText}%'
+						 	OR l.eqpmnt_info_sn LIKE '%${searchText}%'
+						 	OR m.eml_addr LIKE '%${searchText}%'
+						 	)
+					 	</if>
+						<if test='startDate != null and startDate != "" and endDate != null and endDate != ""'>
+						 	AND (
+						 	l.log_tm BETWEEN #{startDate} AND #{endDate}
+						 	)
+					 	</if>
+					</where>
+				) S
+			) TOTAL
+	FROM (
+		 	SELECT @ROWNUM:=@ROWNUM+1 AS ROWNUM, a.* 
+		 	FROM (
+					SELECT l.log_tm,
+						m.eml_addr, 
+						l.eqpmnt_info_sn, 
+						l.log_content 
+					FROM TB_LOG l LEFT OUTER JOIN TB_MBR_INFO_M m
+					ON l.mbr_sn = m.mbr_sn
+					<where>
+						log_cat = #{log_cat}
+					 	<if test='eqpmnt_info_sn != null and !eqpmnt_info_sn.equals("")'>
+						 	AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+					 	</if>
+						<if test='searchText != null and !searchText.equals("")'>
+						 	AND (
+						 	l.log_content LIKE '%${searchText}%'
+						 	OR l.eqpmnt_info_sn LIKE '%${searchText}%'
+						 	OR m.eml_addr LIKE '%${searchText}%'
+						 	)
+					 	</if>
+						<if test='startDate != null and startDate != "" and endDate != null and endDate != ""'>
+						 	AND (
+						 	l.log_tm BETWEEN #{startDate} AND #{endDate}
+						 	)
+					 	</if>
+					</where>
+				) a, (SELECT @ROWNUM:=0) r 
+			 	<choose>
+			 		<when test='order == "past"'>
+				 		ORDER BY a.log_tm asc
+			 		</when>
+			 		<otherwise>
+			 			ORDER BY a.log_tm desc
+			 		</otherwise>
+			 	</choose>
+ 	 	 ) P
+	 <if test="PAGE_NUMBER != null and PAGE_NUMBER != ''">
+		LIMIT #{PAGE_SIZE}
+	 </if>
+	 <if test="CURRENT_START != null and CURRENT_START != ''">
+		OFFSET #{CURRENT_START}
+	 </if>
+	</select>
+	
+</mapper>
+
+

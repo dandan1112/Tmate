@@ -1,0 +1,67 @@
+/* 웹 폰트 */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+* {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-size: 14px;
+    letter-spacing: -0.04em;
+    color: #222;
+}
+
+/* Heading 1 */
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Title 1 */
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+h3.b {
+    font-weight: 700;
+}
+
+/* Title 2 */
+h4 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Body 1 */
+h5 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Body 2(Default) */
+h6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* 폰트 파일 */
+@import url('/resources/font/SpoqaHanSansNeo_OTF_original/SpoqaHanSansNeo-Regular.otf');
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-weight: 400;
+    font-display: swap;
+    src: url('/resources/font/SpoqaHanSansNeo_OTF_original/SpoqaHanSansNeo-Regular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-weight: 500;
+    font-display: swap;
+    src: url('/resources/font/SpoqaHanSansNeo_OTF_original/SpoqaHanSansNeo-Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-weight: 700;
+    font-display: swap;
+    src: url('/resources/font/SpoqaHanSansNeo_OTF_original/SpoqaHanSansNeo-Bold.otf') format('truetype');
+}

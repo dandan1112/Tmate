@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>맘이랜서</title>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex-center">
+            <a href="/html/회원_리스트.html">회원</a>
+            <a href="/html/디바이스_리스트.html">디바이스</a>
+            <a href="/html/로그_리스트.html" class="on">로그</a>
+        </nav>
+    </header>
+    <main>
+        <div class="mainTitle flex-both">
+            <h2>로그</h2>
+            <!-- 탭 리스트 -->
+            <ul class="tab-list switch type-01 flex">
+                <li class="active" data-tab="tab1">
+                    회원로그
+                </li>
+                <li data-tab="tab2">
+                    디바이스 로그
+                </li>
+            </ul>
+        </div>
+
+        <!-- 회원 로그 탭내용 -->
+        <div class="mainCont tab-cont active" id="tab1">
+            <div class="mainCont__tit flex-both">
+                <h3 class="b">회원 로그</h3>
+                <div class="inpBox flex">
+                    <input type="text" class="w_314 m_r_10">
+                    <button type="button" class="btn btn_gray"><img alt="검색" src="/img/ico_search.svg">검색</button>
+                </div>
+            </div>
+
+            <table class="type-01">
+                <colgroup>
+                    <col style="width: 5%;">
+                    <col style="width: auto;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 20%;">
+                    <col style="width: 15%;">
+                    <col style="width: 10%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>장치명</th>
+                        <th>UID</th>
+                        <th>연결상태</th>
+                        <th>IP</th>
+                        <th>등록일</th>
+                        <th>User Login</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>offline</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>manager</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>x</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>admin</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="taL"><a href="/html/회원_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <ul class="flex-center">
+                    <li class="start"><a href="#" onclick="movePage(1,10,71);">처음으로</a></li>
+                    <li class="prev"><a href="#" onclick="movePage(1,10,71);">이전</a></li>
+
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+
+                    <li>
+                        <a href="#">6</a>
+                    </li>
+
+                    <li>
+                        <a href="#">7</a>
+                    </li>
+
+                    <li>
+                        <a href="#">8</a>
+                    </li>
+
+                    <li>
+                        <a href="#">9</a>
+                    </li>
+
+                    <li>
+                        <a href="#">10</a>
+                    </li>
+
+                    <li class="next"><a href="#">다음</a></li>
+                    <li class="end"><a href="#">끝으로</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 디바이스 로그 탭내용 -->
+        <div class="mainCont tab-cont" id="tab2">
+            <div class="mainCont__tit flex-both">
+                <h3 class="b">디바이스 로그</h3>
+                <div class="inpBox flex">
+                    <input type="text" class="w_314 m_r_10">
+                    <button type="button" class="btn btn_gray"><img alt="검색" src="/img/ico_search.svg">검색</button>
+                </div>
+            </div>
+
+            <table class="type-01">
+                <colgroup>
+                    <col style="width: 5%;">
+                    <col style="width: auto;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 20%;">
+                    <col style="width: 15%;">
+                    <col style="width: 10%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>장치명</th>
+                        <th>UID</th>
+                        <th>연결상태</th>
+                        <th>IP</th>
+                        <th>등록일</th>
+                        <th>User Login</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>offline</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>manager</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>x</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>admin</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="taL"><a href="/html/디바이스_상세뷰.html">****</a></td>
+                        <td>****</td>
+                        <td>online</td>
+                        <td>123.*.*.23</td>
+                        <td>2023.09.10 00:00:00</td>
+                        <td>user01</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <ul class="flex-center">
+                    <li class="start"><a href="#" onclick="movePage(1,10,71);">처음으로</a></li>
+                    <li class="prev"><a href="#" onclick="movePage(1,10,71);">이전</a></li>
+
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+
+                    <li>
+                        <a href="#">6</a>
+                    </li>
+
+                    <li>
+                        <a href="#">7</a>
+                    </li>
+
+                    <li>
+                        <a href="#">8</a>
+                    </li>
+
+                    <li>
+                        <a href="#">9</a>
+                    </li>
+
+                    <li>
+                        <a href="#">10</a>
+                    </li>
+
+                    <li class="next"><a href="#">다음</a></li>
+                    <li class="end"><a href="#">끝으로</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        //탭
+        $('.tab-list li').click(function () {
+            var tab_id = $(this).attr('data-tab');
+
+            $('.tab-list li').removeClass('active');
+            $('.tab-cont').removeClass('active');
+
+            $(this).addClass('active');
+            $("#" + tab_id).addClass('active');
+        });
+    </script>
+</body>
+
+</html>

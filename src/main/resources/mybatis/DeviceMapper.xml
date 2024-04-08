@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Device">
+
+ 	<select id="selectMbrSnBySalt" resultType="String" parameterType="String">
+ 	 /* Device.selectMbrSnBySalt */
+ 	SELECT mbr_sn 
+ 	FROM TB_MBR_INFO_M
+ 	WHERE salt_vl = #{salt_vl}
+	</select>
+
+ 	<select id="selectEqpmntInfoSn" resultType="String" parameterType="String">
+ 	 /* Device.selectEqpmntInfoSn */
+ 	SELECT NVL(MAX(eqpmnt_info_sn)+1,1) FROM TB_EQPMNT_INFO_M
+	</select>
+
+	<select id="selectDupDeviceInfo" resultType="String" parameterType="DeviceVO">
+ 	 /* Device.selectDupDeviceInfo */
+	SELECT dupChk
+	FROM (
+		SELECT 'Y' dupChk, COUNT(*) cnt FROM TB_EQPMNT_INFO_M
+		WHERE mbr_sn = #{mbr_sn}
+		AND eqpmnt_type_ct = #{eqpmnt_type_ct}
+		AND eqpmnt_cntn_addr = #{eqpmnt_cntn_addr}
+		AND eqpmnt_cntn_port = #{eqpmnt_cntn_port}
+		AND eqpmnt_nm = #{eqpmnt_nm}
+		AND eqpmnt_id = #{eqpmnt_id}
+		AND eqpmnt_pswd = #{eqpmnt_pswd}
+		AND eqpmnt_serial_no = #{eqpmnt_serial_no}
+		UNION 
+		SELECT 'N' dupChk, 1
+	) a
+	where cnt > 0
+	order by dupChk desc
+	limit 1
+	</select>
+
+ 	<insert id="insertDeviceInfo" parameterType="DeviceVO">
+ 	 /* Device.insertDeviceInfo */
+ 	 INSERT INTO TB_EQPMNT_INFO_M (mbr_sn, eqpmnt_info_sn, eqpmnt_type_ct, eqpmnt_cntn_addr, eqpmnt_cntn_port, eqpmnt_nm, eqpmnt_id, eqpmnt_pswd, eqpmnt_serial_no, eqpmnt_safety_cd)
+ 	 VALUES (
+ 	 	#{mbr_sn},
+ 	 	#{eqpmnt_info_sn},
+ 	 	#{eqpmnt_type_ct},
+ 	 	#{eqpmnt_cntn_addr},
+ 	 	#{eqpmnt_cntn_port},
+ 	 	#{eqpmnt_nm},
+ 	 	#{eqpmnt_id},
+ 	 	#{eqpmnt_pswd},
+ 	 	#{eqpmnt_serial_no},
+ 	 	#{eqpmnt_safety_cd}
+ 	 )
+	</insert>
+
+ 	<delete id="deleteDeviceInfo" parameterType="DeviceVO">
+ 	 /* Device.deleteDeviceInfo */
+ 	 DELETE FROM TB_EQPMNT_INFO_M
+ 	 WHERE mbr_sn = #{mbr_sn}
+ 	 AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</delete>
+
+ 	<select id="selectDeviceList" resultType="DeviceVO" parameterType="DeviceVO">
+ 	 /* Device.selectDeviceList */
+ 	SELECT eqpmnt_info_sn, 
+	 	eqpmnt_type_ct, 
+	 	eqpmnt_cntn_addr, 
+	 	eqpmnt_cntn_port, 
+	 	eqpmnt_nm, 
+	 	eqpmnt_id, 
+	 	eqpmnt_pswd, 
+	 	mbr_sn, 
+	 	fvrt_stng_yn
+ 	FROM TB_EQPMNT_INFO_M
+ 	WHERE mbr_sn= #{mbr_sn}
+ 	ORDER BY fvrt_stng_yn DESC
+	</select>
+
+ 	<select id="selectEqpmntNm" resultType="String" parameterType="String">
+ 	 /* Device.selectEqpmntNm */
+ 	SELECT eqpmnt_nm
+ 	FROM TB_EQPMNT_INFO_M
+ 	WHERE eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</select>
+	
+ 	<update id="insertFavrtInfo" parameterType="DeviceVO">
+ 	 /* Device.updateFavrtInfo */
+ 	 UPDATE TB_EQPMNT_INFO_M
+ 	 SET fvrt_stng_yn = 'Y'
+ 	 WHERE mbr_sn = #{mbr_sn}
+ 	 AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</update>
+	
+ 	<update id="deleteFavrtInfo" parameterType="DeviceVO">
+ 	 /* Device.deleteFavrtInfo */
+ 	 UPDATE TB_EQPMNT_INFO_M
+ 	 SET fvrt_stng_yn = 'N'
+ 	 WHERE mbr_sn = #{mbr_sn}
+ 	 AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</update>
+	
+ 	<select id="selectFavrtLst" resultType="DeviceVO" parameterType="DeviceVO">
+ 	 /* Device.selectFavrtLst */
+ 	SELECT eqpmnt_info_sn, 
+	 	eqpmnt_type_ct, 
+	 	eqpmnt_cntn_addr, 
+	 	eqpmnt_cntn_port, 
+	 	eqpmnt_nm, 
+	 	eqpmnt_id,
+	 	eqpmnt_pswd,
+	 	mbr_sn,
+	 	fvrt_stng_yn
+ 	FROM TB_EQPMNT_INFO_M
+ 	WHERE mbr_sn= #{mbr_sn}
+	</select>
+	
+ 	<select id="selectEmlByMbrSn" resultType="String" parameterType="String">
+ 	 /* Device.selectMbrSnBySalt */
+ 	SELECT eml_addr 
+ 	FROM TB_MBR_INFO_M
+ 	WHERE mbr_sn = #{mbr_sn}
+	</select>
+	
+ 	<select id="selectShrMbrSnByEml" resultType="String" parameterType="String">
+ 	 /* Device.selectShrMbrSnByEml */
+ 	SELECT mbr_sn FROM TB_MBR_INFO_M
+ 	WHERE eml_addr = #{eml_addr}
+	</select>
+	
+ 	<select id="selectDupShrDeviceInfo" resultType="String" parameterType="ShareVO">
+ 	 /* Device.selectDupShrDeviceInfo */
+	SELECT dupChk
+	FROM (
+		SELECT 'Y' dupChk, COUNT(*) cnt FROM TB_MBR_SHR_M
+		WHERE mbr_sn = #{mbr_sn}
+		AND shr_mbr_sn = #{shr_mbr_sn}
+		AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+		AND eqpmnt_shr_role = #{eqpmnt_shr_role}
+		UNION 
+		SELECT 'N' dupChk, 1
+	) a
+	where cnt > 0
+	order by dupChk desc
+	limit 1
+	</select>
+	
+ 	<insert id="insertShrDeviceInfo" parameterType="ShareVO">
+ 	 /* Device.insertShrDevice */
+ 	 INSERT INTO TB_MBR_SHR_M (mbr_sn, shr_mbr_sn, eqpmnt_info_sn, eqpmnt_shr_role, eqpmnt_shr_req_tm)
+ 	 VALUES (
+ 	 	#{mbr_sn},
+ 	 	#{shr_mbr_sn},
+ 	 	#{eqpmnt_info_sn},
+ 	 	#{eqpmnt_shr_role},
+ 	 	now()
+ 	 )
+	</insert>
+	
+ 	<delete id="deleteShrDeviceInfo" parameterType="ShareVO">
+ 	 /* Device.deleteShrDevice */
+ 	DELETE FROM TB_MBR_SHR_M
+	WHERE mbr_sn = #{mbr_sn}
+	AND shr_mbr_sn = #{shr_mbr_sn}
+	AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</delete>
+	
+ 	<select id="selectShrDeviceList" resultType="ShareVO" parameterType="ShareVO">
+ 	 /* Device.selectShrDeviceList */
+ 	SELECT *
+ 	FROM TB_MBR_SHR_M
+ 	WHERE mbr_sn= #{mbr_sn}
+	</select>
+	
+ 	<update id="updateShrDeviceYn" parameterType="ShareVO">
+ 	 /* Device.updateShrDeviceYn */
+ 	UPDATE TB_MBR_SHR_M
+	SET eqpmnt_shr_yn = #{eqpmnt_shr_yn},
+	eqpmnt_shr_rsp_tm = now()
+	WHERE mbr_sn = #{mbr_sn}
+	AND shr_mbr_sn = #{shr_mbr_sn}
+	AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</update>
+	
+ 	<select id="selectDupRecSchdlInfo" resultType="String" parameterType="ShareVO">
+ 	 /* Device.selectDupRecSchdlInfo */
+	SELECT dupChk
+	FROM (
+		SELECT 'Y' dupChk, COUNT(*) cnt FROM TB_REC_SCHDL_INFO_M
+		WHERE mbr_sn = #{mbr_sn}
+		AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+		AND rec_bgng_dt = #{rec_bgng_dt}
+		AND rec_bgng_tm = #{rec_bgng_tm}
+		AND rec_end_dt = #{rec_end_dt}
+		AND rec_end_tm = #{rec_end_tm}
+		UNION 
+		SELECT 'N' dupChk, 1
+	) a
+	where cnt > 0
+	order by dupChk desc
+	limit 1
+	</select>
+	
+ 	<select id="selectRecSchdlSn" resultType="String" parameterType="String">
+ 	 /* Device.selectRecSchdlSn */
+ 	SELECT NVL(MAX(rec_schdl_sn)+1,1) FROM TB_REC_SCHDL_INFO_M
+	</select>
+	
+ 	<insert id="insertRecSchdlInfo" parameterType="RecVO">
+ 	 /* Device.insertRecSchdlInfo */
+ 	 INSERT INTO TB_REC_SCHDL_INFO_M
+ 	 VALUES (
+ 	 #{mbr_sn},
+ 	 #{eqpmnt_info_sn}, 
+ 	 #{rec_schdl_sn},
+ 	 #{rec_bgng_dt},
+ 	 #{rec_bgng_tm},
+ 	 #{rec_end_dt},
+ 	 #{rec_end_tm}
+ 	 )
+	</insert>
+	
+ 	<delete id="deleteRecSchdlInfo" parameterType="RecVO">
+ 	 /* Device.deleteRecSchdlInfo */
+ 	DELETE FROM TB_REC_SCHDL_INFO_M
+	WHERE mbr_sn = #{mbr_sn}
+	AND eqpmnt_info_sn = #{eqpmnt_info_sn}
+	AND rec_schdl_sn = #{rec_schdl_sn}
+	</delete>
+	
+ 	<select id="selectRecSchdlList" resultType="RecVO" parameterType="RecVO">
+ 	 /* Device.selectRecSchdlList */
+ 	SELECT *
+ 	FROM TB_REC_SCHDL_INFO_M
+ 	WHERE mbr_sn= #{mbr_sn}
+	</select>
+	
+	<select id="selectDupRDeviceInfo" resultType="String" parameterType="DeviceVO">
+ 	 /* Device.selectDupRDeviceInfo */
+	SELECT dupChk
+	FROM (
+		SELECT 'Y' dupChk, COUNT(*) cnt FROM TB_EQPMNT_CERT_INFO_M
+		WHERE eqpmnt_info_sn = #{eqpmnt_info_sn}
+		UNION 
+		SELECT 'N' dupChk, 1
+	) a
+	where cnt > 0
+	order by dupChk desc
+	limit 1
+	</select>
+	
+ 	<select id="selectEqpmntInfoSnBySerialNo" resultType="String" parameterType="String">
+ 	 /* Device.selectEqpmntInfoSnBySerialNo */
+ 	SELECT eqpmnt_info_sn
+ 	FROM TB_EQPMNT_INFO_M
+ 	WHERE eqpmnt_serial_no = #{eqpmnt_serial_no}
+	</select>
+	
+ 	<insert id="insertRDeviceInfo" parameterType="DeviceVO">
+ 	 /* Device.insertRDeviceInfo */
+ 	 INSERT INTO TB_EQPMNT_CERT_INFO_M
+ 	 VALUES (
+ 	 	#{eqpmnt_info_sn},
+ 	 	#{eqpmnt_safety_cd},
+ 	 	#{eqpmnt_type_ct},
+ 	 	#{eqpmnt_cntn_addr},
+ 	 	#{eqpmnt_cntn_port}
+ 	 )
+	</insert>
+	
+ 	<update id="updateRDeviceInfo" parameterType="DeviceVO">
+ 	 /* Device.updateRDeviceInfo */
+ 	 UPDATE TB_EQPMNT_CERT_INFO_M
+ 	 SET eqpmnt_sft_ct = #{eqpmnt_safety_cd}, 
+	 	 eqpmnt_type_ct = #{eqpmnt_type_ct}, 
+	 	 eqpmnt_cntn_addr = #{eqpmnt_cntn_addr}, 
+	 	 eqpmnt_cntn_port = #{eqpmnt_cntn_port}
+ 	 WHERE eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</update>
+	
+	
+ 	<select id="selectDeviceEList" resultType="DeviceVO" parameterType="DeviceVO">
+ 	 /* Device.selectDeviceEList */
+	SELECT *
+	 	 , (
+	 		SELECT COUNT(*) 
+		 	FROM (
+		 	SELECT e.mbr_sn,
+		 		e.eqpmnt_info_sn,
+		 		e.eqpmnt_type_ct,
+		 		e.eqpmnt_cntn_addr,
+		 		e.eqpmnt_cntn_port,
+		 		e.eqpmnt_nm,
+		 		e.fvrt_stng_yn,
+		 		e.eqpmnt_serial_no,
+		 		e.eqpmnt_safety_cd,
+		 		m.eml_addr
+		 	FROM TB_EQPMNT_INFO_M e LEFT OUTER JOIN TB_MBR_INFO_M m
+		 	ON e.mbr_sn = m.mbr_sn
+			<where>
+				<if test='searchText != null and !searchText.equals("")'>
+					m.eml_addr LIKE '%${searchText}%'
+				</if>
+			</where>
+			) S
+		) TOTAL
+	FROM (
+	 	SELECT @ROWNUM:=@ROWNUM+1 AS ROWNUM, a.* 
+	 	FROM (
+	 	SELECT e.mbr_sn,
+	 		e.eqpmnt_info_sn,
+	 		e.eqpmnt_type_ct,
+	 		e.eqpmnt_cntn_addr,
+	 		e.eqpmnt_cntn_port,
+	 		e.eqpmnt_nm,
+	 		e.fvrt_stng_yn,
+	 		e.eqpmnt_serial_no,
+	 		e.eqpmnt_safety_cd,
+	 		m.eml_addr
+	 	FROM TB_EQPMNT_INFO_M e LEFT OUTER JOIN TB_MBR_INFO_M m
+	 	ON e.mbr_sn = m.mbr_sn
+		<where>
+			<if test='searchText != null and !searchText.equals("")'>
+				m.eml_addr LIKE '%${searchText}%'
+			</if>
+		</where>
+	 	 ) a, (SELECT @ROWNUM:=0) r 
+ 		order by a.mbr_sn desc
+ 	 ) P
+	<if test="PAGE_NUMBER != null and PAGE_NUMBER != ''">
+		LIMIT #{PAGE_SIZE}
+	</if>
+	<if test="CURRENT_START != null and CURRENT_START != ''">
+		OFFSET #{CURRENT_START}
+	</if>
+	</select>
+	
+ 	<select id="selectDeviceInfo" resultType="Map" parameterType="DeviceVO">
+ 	 /* Device.selectDeviceInfo */
+ 	SELECT e.mbr_sn,
+ 		e.eqpmnt_info_sn,
+ 		e.eqpmnt_type_ct,
+ 		e.eqpmnt_cntn_addr,
+ 		e.eqpmnt_cntn_port,
+ 		e.eqpmnt_nm,
+ 		e.fvrt_stng_yn,
+ 		e.eqpmnt_serial_no,
+ 		e.eqpmnt_safety_cd,
+ 		m.eml_addr
+ 	FROM TB_EQPMNT_INFO_M e LEFT OUTER JOIN TB_MBR_INFO_M m
+ 	ON e.mbr_sn = m.mbr_sn
+ 	WHERE eqpmnt_info_sn = #{eqpmnt_info_sn}
+	</select>
+	
+</mapper>
+
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>맘이랜서</title>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex-center">
+            <a href="/html/회원_리스트.html" class="on">회원</a>
+            <a href="/html/디바이스_리스트.html">디바이스</a>
+            <a href="/html/로그_리스트.html">로그</a>
+        </nav>
+    </header>
+    <main>
+        <div class="mainTitle">
+            <h2>디바이스</h2>
+        </div>
+        <div class="mainCont">
+            <!-- 디바이스 상세내용 -->
+            <div class="mainCont__tit">
+                <h3 class="b">디바이스 상세내용</h3>
+            </div>
+
+            <table class="type-02">
+                <colgroup>
+                    <col style="width: 190px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>No</th>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th>장치명</th>
+                        <td>****</td>
+                    </tr>
+                    <tr>
+                        <th>UID</th>
+                        <td>
+                            ****
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>연결상태</th>
+                        <td>online</td>
+                    </tr>
+                    <tr>
+                        <th>IP</th>
+                        <td>123.*.*.23</td>
+                    </tr>
+                    <tr>
+                        <th>등록일</th>
+                        <td>2023.09.10 00:00:00</td>
+                    </tr>
+                    <tr>
+                        <th>User Login</th>
+                        <td>
+                            user01
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 장치로그 -->
+            <div class="mainCont__tit flex-both m_t_40">
+                <h3 class="b">장치로그</h3>
+                <ul class="switch type-02 flex">
+                    <li class="active">최신순</li>
+                    <li>오래된순</li>
+                </ul>
+            </div>
+
+            <table class="type-02 taC">
+                <colgroup>
+                    <col style="width: 5%;">
+                    <col style="width: atuo;">
+                    <col style="width: 25%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>장치로그</th>
+                        <th>date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>device is registered.</td>
+                        <td>2023.09.10 00:00:00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>device is registered.</td>
+                        <td>2023.09.10 00:00:00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <ul class="flex-center">
+                    <li class="start"><a href="#" onclick="movePage(1,10,71);">처음으로</a></li>
+                    <li class="prev"><a href="#" onclick="movePage(1,10,71);">이전</a></li>
+
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+
+                    <li>
+                        <a href="#">6</a>
+                    </li>
+
+                    <li>
+                        <a href="#">7</a>
+                    </li>
+
+                    <li>
+                        <a href="#">8</a>
+                    </li>
+
+                    <li>
+                        <a href="#">9</a>
+                    </li>
+
+                    <li>
+                        <a href="#">10</a>
+                    </li>
+
+                    <li class="next"><a href="#">다음</a></li>
+                    <li class="end"><a href="#">끝으로</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        //스위치
+        $('.switch li').click(function () {
+            $('.switch li').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+</body>
+
+</html>

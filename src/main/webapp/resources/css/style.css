@@ -1,0 +1,345 @@
+@import url('common.css');
+
+body {
+    background: var(--secondary-B);
+}
+
+main {
+    width: 1460px;
+    margin: 0 auto;
+    padding: 72px 0 100px 0;
+}
+
+input {
+    border: 1px solid #e0e0e0;
+    outline: none;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 2px;
+}
+
+input::placeholder {
+    color: #B3B3B3;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+}
+
+input[type="text"]:invalid {
+    border-color: #DB252E;
+    color: #DB252E;
+}
+
+.btn {
+    color: #fff;
+    border-radius: 4px;
+}
+
+.btn img {
+    filter: brightness(0) invert(1);
+    margin-top: 6px;
+    margin-right: 4px;
+}
+
+.btn:hover {
+    text-decoration: underline;
+}
+
+.btn:disabled {
+    background: #fff;
+    color: var(--base);
+    border: 1px solid #e0e0e0;
+}
+
+.btn_login {
+    background: var(--primary);
+    height: 56px;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 2px 10px 0 rgba(39, 79, 255, 0.05);
+}
+
+.btn_gray {
+    background: var(--base);
+    padding: 0 16px;
+    width: auto;
+    height: 32px;
+    line-height: 32px;
+}
+
+/* 로그인 */
+.login-frame {
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    background: #fff;
+    border: 1px solid #CFD7EC;
+    box-shadow: 0 1px 4px 0 rgba(37, 49, 109, 0.1);
+    padding: 125px 90px;
+}
+
+.login-frame input {
+    padding: 13px 16px;
+    border-radius: 0;
+}
+
+/* 헤더 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--primary);
+    width: 100%;
+    height: 72px;
+}
+
+header nav {
+    height: 72px;
+}
+
+header nav a {
+    width: auto;
+    height: 100%;
+    line-height: 72px;
+    padding: 0 40px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+header nav a.on {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* 컨텐츠 */
+.mainTitle {
+    padding: 40px 0;
+}
+
+.mainCont {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 60px;
+}
+
+.mainCont__tit {
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 탭 */
+.tab-cont {
+    display: none;
+}
+
+.tab-cont.active {
+    display: block;
+}
+
+/* 스위치 */
+.switch.type-01 li {
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #F9F9F9;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    color: #BDBDBD;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.switch.type-01 li.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.switch.type-02 {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+.switch.type-02 li {
+    width: 71px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: var(--base);
+    position: relative;
+    cursor: pointer;
+}
+
+.switch.type-02 li.active {
+    color: var(--primary);
+}
+
+.switch.type-02 li::after {
+    content: '';
+    width: 1px;
+    height: 12px;
+    background: #e0e0e0;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.switch.type-02 li:last-child:after {
+    display: none;
+}
+
+/* 테이블 */
+table th,
+table td {
+    height: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 400;
+    padding: 0 20px;
+}
+
+table th {
+    background: var(--secondary-A);
+    color: var(--primary);
+}
+
+table td {
+    color: #4f4f4f;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+table.type-01 {
+    text-align: center;
+    border-top: 1px solid #0D2260;
+}
+
+table.type-02 {
+    text-align: left;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+}
+
+table.type-02 th,
+table.type-02 td {
+    border-right: 1px solid #e0e0e0;
+}
+
+/* 페이지네이션 */
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pagination ul li {
+    line-height: 25px;
+}
+
+.pagination ul li a {
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    color: #4f4f4f;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.pagination ul li.active a {
+    color: #0054d1;
+    font-weight: bold;
+}
+
+.pagination ul li:hover a {
+    text-decoration: underline;
+}
+
+.pagination a {
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.pagination .start,
+.pagination .end,
+.pagination .prev,
+.pagination .next {
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-indent: -9999px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pagination .start {
+    background: url("/resources/img/ico_paging_front.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .start:hover {
+    background: url("/resources/img/ico_paging_front_hover.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .end {
+    background: url("/resources/img/ico_paging_end.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .prev {
+    background: url("/resources/img/ico_paging_prev.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .end:hover {
+    background: url("/resources/img/ico_paging_end_hover.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .prev:hover {
+    background: url("/resources/img/ico_paging_prev_hover.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .next:hover {
+    background: url("/resources/img/ico_paging_next_hover.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .next {
+    background: url("/resources/img/ico_paging_next.svg") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.pagination .disabled {
+    opacity:0.6; 
+    pointer-events:none;
+}
+
+.pagination .prev {
+    margin-right: 12px;
+}
+
+.pagination .next {
+    margin-left: 15px;
+}
+
+.pagination .start {
+    margin-right: 8px;
+}
+
+.pagination .end {
+    margin-left: 8px;
+}
