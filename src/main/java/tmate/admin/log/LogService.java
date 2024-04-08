@@ -1,8 +1,6 @@
-package kr.ac.kopo.admin.log;
+package tmate.admin.log;
 
 import java.util.List;
-
-import kr.ac.kopo.admin.Pagination;
 
 public interface LogService {
 

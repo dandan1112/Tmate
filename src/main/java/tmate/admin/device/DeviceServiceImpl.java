@@ -1,4 +1,4 @@
-package kr.ac.kopo.admin.device;
+package tmate.admin.device;
 
 import java.util.List;
 import java.util.Map;
@@ -6,9 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.ac.kopo.admin.Pagination;
-import kr.ac.kopo.device.rec.RecVO;
-import kr.ac.kopo.device.share.ShareVO;
+import tmate.admin.Pagination;
 
 @Service
 public class DeviceServiceImpl implements DeviceService{
@@ -71,50 +69,50 @@ public class DeviceServiceImpl implements DeviceService{
 		return deviceDAO.selectShrMbrSnByEml(eml_addr);
 	}
 	
-	@Override
-	public String checkDupShrDeviceInfo(ShareVO shareVO) {
-		return deviceDAO.selectDupShrDeviceInfo(shareVO);
-	}
-	
-	@Override
-	public void registerShrDeviceInfo(ShareVO shareVO) {
-		deviceDAO.insertShrDeviceInfo(shareVO);
-	}
-	
-	@Override
-	public void removeShrDeviceInfo(ShareVO shareVO) {
-		deviceDAO.deleteShrDeviceInfo(shareVO);
-	}
-	
-	@Override
-	public List<ShareVO> getShrDeviceList(ShareVO shareVO) {
-		return deviceDAO.selectShrDeviceList(shareVO);
-	}
-	
-	@Override
-	public void changeShrDeviceYn(String eml_addr, ShareVO shareVO) {
-		deviceDAO.updateShrDeviceYn(eml_addr, shareVO);
-	}
-	
-	@Override
-	public String checkDupRecSchdlInfo(RecVO recVO) {
-		return deviceDAO.selectDupRecSchdlInfo(recVO);
-	}
-	
-	@Override
-	public void registerRecSchdlInfo(RecVO recVO) {
-		deviceDAO.insertRecSchdlInfo(recVO);
-	}
-	
-	@Override
-	public void removeRecSchdlInfo(RecVO recVO) {
-		deviceDAO.deleteRecSchdlInfo(recVO);
-	}
-	
-	@Override
-	public List<RecVO> getRecSchdlList(RecVO recVO) {
-		return deviceDAO.selectRecSchdlList(recVO);
-	}
+//	@Override
+//	public String checkDupShrDeviceInfo(ShareVO shareVO) {
+//		return deviceDAO.selectDupShrDeviceInfo(shareVO);
+//	}
+//	
+//	@Override
+//	public void registerShrDeviceInfo(ShareVO shareVO) {
+//		deviceDAO.insertShrDeviceInfo(shareVO);
+//	}
+//	
+//	@Override
+//	public void removeShrDeviceInfo(ShareVO shareVO) {
+//		deviceDAO.deleteShrDeviceInfo(shareVO);
+//	}
+//	
+//	@Override
+//	public List<ShareVO> getShrDeviceList(ShareVO shareVO) {
+//		return deviceDAO.selectShrDeviceList(shareVO);
+//	}
+//	
+//	@Override
+//	public void changeShrDeviceYn(String eml_addr, ShareVO shareVO) {
+//		deviceDAO.updateShrDeviceYn(eml_addr, shareVO);
+//	}
+//	
+//	@Override
+//	public String checkDupRecSchdlInfo(RecVO recVO) {
+//		return deviceDAO.selectDupRecSchdlInfo(recVO);
+//	}
+//	
+//	@Override
+//	public void registerRecSchdlInfo(RecVO recVO) {
+//		deviceDAO.insertRecSchdlInfo(recVO);
+//	}
+//	
+//	@Override
+//	public void removeRecSchdlInfo(RecVO recVO) {
+//		deviceDAO.deleteRecSchdlInfo(recVO);
+//	}
+//	
+//	@Override
+//	public List<RecVO> getRecSchdlList(RecVO recVO) {
+//		return deviceDAO.selectRecSchdlList(recVO);
+//	}
 	
 	@Override
 	public String checkDupRDeviceInfo(DeviceVO deviceVO) {

@@ -1,4 +1,4 @@
-package kr.ac.kopo.admin.user;
+package tmate.admin.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.ac.kopo.admin.Pagination;
-import kr.ac.kopo.admin.device.DeviceService;
-import kr.ac.kopo.admin.device.DeviceVO;
+import tmate.admin.Pagination;
+import tmate.admin.device.DeviceService;
+import tmate.admin.device.DeviceVO;
 
 @Controller
 public class AdminUserController {

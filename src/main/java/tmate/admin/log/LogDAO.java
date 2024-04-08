@@ -1,12 +1,10 @@
-package kr.ac.kopo.admin.log;
+package tmate.admin.log;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import kr.ac.kopo.admin.Pagination;
 
 @Repository
 public class LogDAO {

@@ -1,4 +1,4 @@
-package kr.ac.kopo.admin.device;
+package tmate.admin.device;
 
 public class DeviceVO {
 

@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/style.css">
-    <title>맘이랜서</title>
+    <title>tmate</title>
     <script src="/resources/js/jquery-1.11.1.min.js"></script>
     <script>
     $(function(){
-        $("#eml_addr").on("propertychange change paste input", function() {
-        	if($("#eml_addr").val()!="" && $("#pswd").val()!=""){
+        $("#mbr_id").on("propertychange change paste input", function() {
+        	if($("#mbr_id").val()!="" && $("#pswd").val()!=""){
         		$("#login").prop("disabled", false);
         	} else {
         		$("#login").prop("disabled", true);
@@ -22,7 +22,7 @@
         });
         
         $("#pswd").on("propertychange change paste input", function() {
-        	if($("#eml_addr").val()!="" && $("#pswd").val()!=""){
+        	if($("#mbr_id").val()!="" && $("#pswd").val()!=""){
         		$("#login").prop("disabled", false);
         	} else {
         		$("#login").prop("disabled", true);
@@ -35,7 +35,7 @@
     		url: "/login",
     		type: "GET",
     		data: {
-    			eml_addr: $("#eml_addr").val(),
+    			mbr_id: $("#mbr_id").val(),
     			pswd: $("#pswd").val()
     		},
     		dataType:"json",
@@ -61,7 +61,7 @@
             <h5>아이디와 비밀번호를 입력해주세요. (영문 대소문자 구분)</h5>
         </div>
             <div class="m_b_20">
-                <input type="text" placeholder="아이디" class="w_100pct" id="eml_addr">
+                <input type="text" placeholder="아이디" class="w_100pct" id="mbr_id">
             </div>
             <div class="m_b_40">
                 <input type="password" placeholder="비밀번호" class="w_100pct" id="pswd">

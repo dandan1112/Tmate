@@ -6,7 +6,7 @@
 <configuration>
 
     <typeAliases>
-          <package name="kr.ac.kopo"/>
+          <package name="tmate"/>
     </typeAliases>
       
     <mappers>

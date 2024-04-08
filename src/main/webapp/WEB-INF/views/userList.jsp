@@ -57,7 +57,6 @@
 	                    <col style="width: 15%;">
 	                    <col style="width: 15%;">
 	                    <col style="width: 15%;">
-	                    <col style="width: 10%;">
 	                </colgroup>
 	                <thead>
 	                    <tr>
@@ -67,7 +66,6 @@
 	                        <th>이메일</th>
 	                        <th>전화번호</th>
 	                        <th>등록일</th>
-	                        <th>등급</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
@@ -80,8 +78,7 @@
 			                        <td>${itm.mbr_name}</td>
 			                        <td>${itm.eml_addr}</td>
 			                        <td>${itm.mbr_tel}</td>
-			                        <td>${itm.srvc_trms_agre_dt}</td>
-			                        <td>${itm.mbr_type}</td>
+			                        <td>${itm.createDate}</td>
 			                    </tr>
 		                    </c:forEach>
 		                </c:when>

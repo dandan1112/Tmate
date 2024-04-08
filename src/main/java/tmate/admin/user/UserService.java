@@ -1,9 +1,9 @@
-package kr.ac.kopo.admin.user;
+package tmate.admin.user;
 
 import java.util.List;
 import java.util.Map;
 
-import kr.ac.kopo.admin.Pagination;
+import tmate.admin.Pagination;
 
 public interface UserService {
 

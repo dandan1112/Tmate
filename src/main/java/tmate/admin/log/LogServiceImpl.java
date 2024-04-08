@@ -1,11 +1,9 @@
-package kr.ac.kopo.admin.log;
+package tmate.admin.log;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import kr.ac.kopo.admin.Pagination;
 
 @Service
 public class LogServiceImpl implements LogService{

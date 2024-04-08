@@ -1,4 +1,4 @@
-package kr.ac.kopo.admin;
+package tmate.admin;
 
 public class Pagination {
 

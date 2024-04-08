@@ -1,4 +1,4 @@
-package kr.ac.kopo.admin.log;
+package tmate.admin.log;
 
 public class LogVO {
 

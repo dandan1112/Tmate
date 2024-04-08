@@ -1,19 +1,17 @@
-package kr.ac.kopo.admin.user;
+package tmate.admin.user;
 
 public class UserVO {
 
 	private String mbr_sn;
 	private String mbr_id;
-	private String mbr_name;
-	private String eml_addr;
-	private String mbr_tel;
-	private String mbr_type;
 	private String pswd;
-	private String prvc_trms_agre_dt;
-	private String srvc_trms_agre_dt;
+	private String eml_addr;
+	private String mbr_name;
+	private String mbr_tel;
 	private String salt_vl;
+	private String createDate;
+	private String modifiedDate;
 	private String pswd_init_yn;
-	private String resign_yn;
 	
 	private String temp_pswd;
 	private String searchText;
@@ -64,14 +62,6 @@ public class UserVO {
 		this.mbr_tel = mbr_tel;
 	}
 	
-	public String getMbr_type() {
-		return mbr_type;
-	}
-	
-	public void setMbr_type(String mbr_type) {
-		this.mbr_type = mbr_type;
-	}
-	
 	public String getPswd() {
 		return pswd;
 	}
@@ -80,20 +70,20 @@ public class UserVO {
 		this.pswd = pswd;
 	}
 	
-	public String getPrvc_trms_agre_dt() {
-		return prvc_trms_agre_dt;
+	public String getCreateDate() {
+		return createDate;
 	}
 	
-	public void setPrvc_trms_agre_dt(String prvc_trms_agre_dt) {
-		this.prvc_trms_agre_dt = prvc_trms_agre_dt;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 	
-	public String getSrvc_trms_agre_dt() {
-		return srvc_trms_agre_dt;
+	public String getModifiedDate() {
+		return modifiedDate;
 	}
 	
-	public void setSrvc_trms_agre_dt(String srvc_trms_agre_dt) {
-		this.srvc_trms_agre_dt = srvc_trms_agre_dt;
+	public void setModifiedDate(String modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 	
 	public String getSalt_vl() {
@@ -166,14 +156,6 @@ public class UserVO {
 
 	public void setTemp_pswd(String temp_pswd) {
 		this.temp_pswd = temp_pswd;
-	}
-
-	public String getResign_yn() {
-		return resign_yn;
-	}
-
-	public void setResign_yn(String resign_yn) {
-		this.resign_yn = resign_yn;
 	}
 
 }

@@ -9,11 +9,11 @@
  	 /* User.selectUserSttus */
 	SELECT *
 	FROM (
-		SELECT '4' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr} AND pswd = #{pswd} AND pswd_init_yn='Y'
+		SELECT '4' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM USER WHERE mbr_id = #{mbr_id} AND pswd = #{pswd} AND pswd_init_yn='Y'
 		UNION 
-		SELECT '3' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr} AND pswd = #{pswd}
+		SELECT '3' rtnCode, '정상' rtnMsg, COUNT(*) cnt FROM USER WHERE mbr_id = #{mbr_id} AND pswd = #{pswd}
 		UNION 
-		SELECT '2' rtnCode, '비밀번호가 일치하지 않습니다' rtnMsg, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr}
+		SELECT '2' rtnCode, '비밀번호가 일치하지 않습니다' rtnMsg, COUNT(*) cnt FROM USER WHERE mbr_id = #{mbr_id}
 		UNION 
 		SELECT '1' rtnCode, '존재하지 않는 아이디 입니다' rtnMsg, 1
 	) a
@@ -24,7 +24,7 @@
 	
 	<update id="updateUserSalt" parameterType="UserVO">
  	 /* User.updateUserSalt */
- 	UPDATE TB_MBR_INFO_M
+ 	UPDATE USER
 	SET salt_vl = #{salt_vl}
 	WHERE mbr_sn = #{mbr_sn}
 	</update>
@@ -32,13 +32,12 @@
 
 	<insert id="insertUserInfo" parameterType="UserVO">
  	 /* User.insertUserInfo */
- 	INSERT INTO TB_MBR_INFO_M (mbr_name, eml_addr, pswd, mbr_tel, prvc_trms_agre_dt, srvc_trms_agre_dt, mbr_id)
+ 	INSERT INTO USER (mbr_name, eml_addr, pswd, mbr_tel, createDate, mbr_id)
 	VALUES (
 		#{mbr_name},
 		#{eml_addr},
 		#{pswd},
 		#{mbr_tel},
-		now(),
 		now(),
 		#{mbr_id}
 	)
@@ -49,7 +48,7 @@
  	 /* User.selectMail */
 	SELECT rtnCode
 	FROM (
-		SELECT 'Y' rtnCode, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE eml_addr = #{eml_addr}
+		SELECT 'Y' rtnCode, COUNT(*) cnt FROM USER WHERE eml_addr = #{eml_addr}
 		UNION 
 		SELECT 'N' rtnCode, 1
 	) a
@@ -63,7 +62,7 @@
  	 /* User.selectUserId */
 	SELECT rtnCode, rtnMsg
 	FROM (
-		SELECT '1' rtnCode, COUNT(*) cnt, eml_addr rtnMsg FROM TB_MBR_INFO_M WHERE mbr_tel = #{mbr_tel}
+		SELECT '1' rtnCode, COUNT(*) cnt, eml_addr rtnMsg FROM USER WHERE mbr_tel = #{mbr_tel}
 		UNION 
 		SELECT '0' rtnCode, 1, '해당 번호와 일치하는 아이디가 존재하지 않습니다' rtnMsg
 	) a
@@ -75,7 +74,7 @@
 	
 	<update id="updateUserTempPswd" parameterType="UserVO">
  	 /* User.updateUserTempPswd */
-	UPDATE TB_MBR_INFO_M
+	UPDATE USER
 	SET pswd = #{pswd}
 	, pswd_init_yn = 'Y'
 	WHERE eml_addr = #{eml_addr}
@@ -86,7 +85,7 @@
  	 /* User.selectUsedPswd */
 	SELECT rtnCode
 	FROM (
-		SELECT 'Y' rtnCode, COUNT(*) cnt FROM TB_MBR_INFO_M WHERE pswd = #{temp_pswd} AND eml_addr = #{eml_addr}
+		SELECT 'Y' rtnCode, COUNT(*) cnt FROM USER WHERE pswd = #{temp_pswd} AND eml_addr = #{eml_addr}
 		UNION 
 		SELECT 'N' rtnCode, 1
 	) a
@@ -98,7 +97,7 @@
 	
 	<update id="updateUserPswd" parameterType="UserVO">
  	 /* User.updateUserPswd */
-	UPDATE TB_MBR_INFO_M
+	UPDATE USER
 	SET pswd = #{pswd}
 	, pswd_init_yn = 'N'
 	WHERE pswd = #{temp_pswd}
@@ -108,7 +107,7 @@
 	
 	<update id="updateUserResign" parameterType="UserVO">
  	 /* User.updateUserResign */
-	UPDATE TB_MBR_INFO_M
+	UPDATE USER
 	SET eml_addr = CONCAT(#{eml_addr},'_')
 	, resign_yn = 'Y'
 	WHERE eml_addr = #{eml_addr}
@@ -119,14 +118,14 @@
  	<select id="selectUserInfo" resultType="UserVO" parameterType="String">
  	 /* User.selectUserInfo */
  	SELECT * 
- 	FROM TB_MBR_INFO_M
+ 	FROM USER
  	WHERE mbr_sn = #{mbr_sn}
 	</select>
 	
 	
 	<update id="updateUserDetail" parameterType="UserVO">
  	 /* User.updateUserDetail */
- 	UPDATE TB_MBR_INFO_M
+ 	UPDATE USER
 	<set>
 		<if test='mbr_name != null and !mbr_name.equals("")'>
 	 	mbr_name = #{mbr_name},
@@ -147,7 +146,7 @@
  	 SELECT *
 	 	 , (
  	 		SELECT COUNT(*) 
-		 	FROM TB_MBR_INFO_M
+		 	FROM USER
 		 	<where>
 			 	<if test='mbr_sn != null and !mbr_sn.equals("")'>
 				 	AND mbr_sn = #{mbr_sn}
@@ -175,7 +174,7 @@
  		 ) TOTAL
  	 FROM (
 	 	SELECT @ROWNUM:=@ROWNUM+1 AS ROWNUM, m.* 
-	 	FROM TB_MBR_INFO_M m, (SELECT @ROWNUM:=0) r 
+	 	FROM USER m, (SELECT @ROWNUM:=0) r 
 	 	<where>
 		 	<if test='mbr_sn != null and !mbr_sn.equals("")'>
 			 	AND mbr_sn = #{mbr_sn}
