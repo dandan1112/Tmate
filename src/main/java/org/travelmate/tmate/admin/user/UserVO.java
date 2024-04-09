@@ -1,4 +1,4 @@
-package tmate.admin.user;
+package org.travelmate.tmate.admin.user;
 
 public class UserVO {
 

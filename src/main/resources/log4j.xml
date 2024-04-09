@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="tmate">
+	<logger name="org.travelmate.tmate">
 		<level value="info" />
 	</logger>
 	

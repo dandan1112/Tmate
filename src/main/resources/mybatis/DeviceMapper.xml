@@ -128,7 +128,7 @@
  	SELECT mbr_sn FROM TB_MBR_INFO_M
  	WHERE eml_addr = #{eml_addr}
 	</select>
-	
+<!-- 	
  	<select id="selectDupShrDeviceInfo" resultType="String" parameterType="ShareVO">
  	 /* Device.selectDupShrDeviceInfo */
 	SELECT dupChk
@@ -201,12 +201,12 @@
 	order by dupChk desc
 	limit 1
 	</select>
-	
+ -->	
  	<select id="selectRecSchdlSn" resultType="String" parameterType="String">
  	 /* Device.selectRecSchdlSn */
  	SELECT NVL(MAX(rec_schdl_sn)+1,1) FROM TB_REC_SCHDL_INFO_M
 	</select>
-	
+<!-- 	
  	<insert id="insertRecSchdlInfo" parameterType="RecVO">
  	 /* Device.insertRecSchdlInfo */
  	 INSERT INTO TB_REC_SCHDL_INFO_M
@@ -235,7 +235,7 @@
  	FROM TB_REC_SCHDL_INFO_M
  	WHERE mbr_sn= #{mbr_sn}
 	</select>
-	
+ -->	
 	<select id="selectDupRDeviceInfo" resultType="String" parameterType="DeviceVO">
  	 /* Device.selectDupRDeviceInfo */
 	SELECT dupChk

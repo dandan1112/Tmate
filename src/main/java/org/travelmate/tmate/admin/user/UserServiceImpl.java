@@ -1,12 +1,10 @@
-package tmate.admin.user;
+package org.travelmate.tmate.admin.user;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import tmate.admin.Pagination;
 
 @Service
 public class UserServiceImpl implements UserService{

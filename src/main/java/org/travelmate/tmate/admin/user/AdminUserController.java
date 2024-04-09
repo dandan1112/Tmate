@@ -1,4 +1,4 @@
-package tmate.admin.user;
+package org.travelmate.tmate.admin.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,10 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import tmate.admin.Pagination;
-import tmate.admin.device.DeviceService;
-import tmate.admin.device.DeviceVO;
+import org.travelmate.tmate.admin.Pagination;
+import org.travelmate.tmate.admin.device.DeviceService;
+import org.travelmate.tmate.admin.device.DeviceVO;
 
 @Controller
 public class AdminUserController {

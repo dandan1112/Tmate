@@ -6,7 +6,7 @@
 <configuration>
 
     <typeAliases>
-          <package name="tmate"/>
+          <package name="org.travelmate.tmate"/>
     </typeAliases>
       
     <mappers>

@@ -1,4 +1,4 @@
-package tmate.admin;
+package org.travelmate.tmate.admin;
 
 public class Pagination {
 

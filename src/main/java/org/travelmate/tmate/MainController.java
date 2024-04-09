@@ -1,10 +1,9 @@
-package tmate;
+package org.travelmate.tmate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import tmate.admin.user.UserService;
+import org.travelmate.tmate.admin.user.UserService;
 
 @Controller
 public class MainController {
@@ -14,7 +13,8 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "login";
+		return "main";
+//		return "login";
 	}
 	
 }

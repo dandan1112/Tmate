@@ -23,7 +23,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.ac.kopo" />
+	<context:component-scan base-package="org.travelmate.tmate" />
 	
 	<!-- 크론탭 설정에 -->
 	<task:scheduler id="jobScheduler" pool-size="10"/>

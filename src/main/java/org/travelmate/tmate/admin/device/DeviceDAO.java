@@ -1,4 +1,4 @@
-package tmate.admin.device;
+package org.travelmate.tmate.admin.device;
 
 import java.util.List;
 import java.util.Map;
@@ -6,8 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import tmate.admin.Pagination;
+import org.travelmate.tmate.admin.Pagination;
 
 @Repository
 public class DeviceDAO {

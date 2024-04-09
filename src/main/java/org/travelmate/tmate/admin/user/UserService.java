@@ -1,9 +1,7 @@
-package tmate.admin.user;
+package org.travelmate.tmate.admin.user;
 
 import java.util.List;
 import java.util.Map;
-
-import tmate.admin.Pagination;
 
 public interface UserService {
 

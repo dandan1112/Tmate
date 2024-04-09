@@ -1,4 +1,4 @@
-package tmate.admin.device;
+package org.travelmate.tmate.admin.device;
 
 public class DeviceVO {
 

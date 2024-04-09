@@ -1,9 +1,9 @@
-package tmate.admin.device;
+package org.travelmate.tmate.admin.device;
 
 import java.util.List;
 import java.util.Map;
 
-import tmate.admin.Pagination;
+import org.travelmate.tmate.admin.Pagination;
 
 
 public interface DeviceService {

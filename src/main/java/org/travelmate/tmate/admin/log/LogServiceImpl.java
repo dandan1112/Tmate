@@ -1,4 +1,4 @@
-package tmate.admin.log;
+package org.travelmate.tmate.admin.log;
 
 import java.util.List;
 
