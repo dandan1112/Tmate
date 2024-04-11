@@ -12,7 +12,6 @@
     
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
@@ -186,7 +185,7 @@
             <h1 class="text-white">Travel Anywhere</h1>
             <p class="lead mb-4 text-white opacity-6">You can go anywhere you want to go right away</p>
             
-            <div class="row mg_c"><!-- 20230407 class명 추가-->
+            <div class="row mg_c" style="justify-content: center;"><!-- 20230407 class명 추가-->
               <div class="col-5">
                 <div class="input-group input-group-outline">
                   <label class="form-label">Where are you going?</label>
@@ -221,8 +220,8 @@
         
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4" id="card1">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/huji.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/japan1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">Japan</h1>
@@ -230,7 +229,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Himeji Castle</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/sakura.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/japan2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -246,8 +245,8 @@
           
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4"  id="card2">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/swiss1.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/swiss1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">Switzerland</h1>
@@ -255,7 +254,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Luzern</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/swiss2.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/swiss2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -271,8 +270,8 @@
           
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4"  id="card3">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/canada1.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/canada1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">Canada</h1>
@@ -280,7 +279,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Yellowknife</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/canada2.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/canada2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -296,8 +295,8 @@
           
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4"  id="card4">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/singapore1.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/singapore1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">Singapore</h1>
@@ -305,7 +304,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Gardens by the Bay</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/singapore2.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/singapore2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -321,8 +320,8 @@
           
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4"  id="card5">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/uyuni1.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/uyuni1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">Bolivia</h1>
@@ -330,7 +329,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Uyuni</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/uyuni2.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/uyuni2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -346,8 +345,8 @@
           
           <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4" id="card6">
             <div class="rotating-card-container">
-              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
-                <div class="front front-background" style="background-image: url(resources/assets/img/canyon1.jpg); background-size: cover;">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-dark mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(resources/assets/img/card/canyon1.jpg); background-size: cover;">
                   <div class="card-body py-5 text-center">
                     <i class="material-icons text-white text-4xl my-3">touch_app</i>
                     <h1 class="text-white">USA</h1>
@@ -355,7 +354,7 @@
                     <p class="text-white text-4xl opacity-6" style="font-weight: 500;">Grand Circle</p>
                   </div>
                 </div>
-                <div class="back back-background" style="background-image: url(resources/assets/img/canyon3.jpg); background-size: cover;">
+                <div class="back back-background" style="background-image: url(resources/assets/img/card/canyon2.jpg); background-size: cover;">
                 <a href="">
                   <div class="card-body pt-7 text-center">
                     <h3 class="text-white">Discover More</h3>
@@ -391,38 +390,37 @@
   </div>
   <footer class="footer pt-5 mt-5">
     <div class="container">
-      <div class=" row">
+      <div class="row">
         <div class="col-md-3 mb-4 ms-auto">
-          <div>
+          <div class="main_logo">
             <a href="">
-              <img src="resources/assets/img/logo.jpg" class="mb-3 footer-logo" alt="main_logo">
+              <img src="resources/assets/img/logos/logo1.jpg" class="mb-3 footer-logo" alt="footer_logo" style="margin-left: 0.5rem;">
             </a>
-            <h6 class="font-weight-bolder mb-4 ml-5">TravelMate</h6>
           </div>
           <div>
             <ul class="d-flex flex-row ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link pe-1" href="" target="_blank">
+                <a class="nav-link pe-1" href="#">
                   <i class="fab fa-facebook text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="" target="_blank">
+                <a class="nav-link pe-1" href="#">
                   <i class="fab fa-twitter text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="" target="_blank">
+                <a class="nav-link pe-1" href="#">
                   <i class="fab fa-dribbble text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="" target="_blank">
+                <a class="nav-link pe-1" href="#">
                   <i class="fab fa-github text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="" target="_blank">
+                <a class="nav-link pe-1" href="#">
                   <i class="fab fa-youtube text-lg opacity-8"></i>
                 </a>
               </li>
@@ -434,22 +432,22 @@
             <h6 class="text-sm">Company</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   About us
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Careers
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Press
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Blog
                 </a>
               </li>
@@ -461,22 +459,22 @@
             <h6 class="text-sm">Help</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Help Center
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   FAQs
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Privacy policy
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Cookie Policy
                 </a>
               </li>
@@ -488,12 +486,12 @@
             <h6 class="text-sm">Destinations</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Countries/Territories
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Cities
                 </a>
               </li>
@@ -505,17 +503,17 @@
             <h6 class="text-sm">Partner with us</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Partner Hub
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Connectivity partners
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">
+                <a class="nav-link" href="#">
                   Advertise on travelMate
                 </a>
               </li>
